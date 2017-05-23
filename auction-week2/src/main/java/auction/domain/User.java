@@ -22,8 +22,7 @@ import org.eclipse.persistence.annotations.CascadeOnDelete;
 })
 public class User {
     
-     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String email;
@@ -32,9 +31,9 @@ public class User {
     @CascadeOnDelete
     private Set<Bid> bids;
     @CascadeOnDelete
-//    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
-//    private Set<Item> items;
-    @OneToMany(mappedBy= "seller", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
+    private Set<Item> items;
+    @OneToMany(mappedBy= "sellers", cascade = CascadeType.REMOVE)
     private Set<Item> offeredItems = new HashSet();
 
     public User()
@@ -80,14 +79,19 @@ public class User {
         this.items = items;
     }
     
-    private void addItem(Item item)
+    public void addItem(Item item)
     {
         offeredItems.add(item);
     }
     
     public int numberOfOfferdItems()
     {
-        return offeredItems.size();
+        if(offeredItems.size() == 0)
+        {
+            return 0;
+        }
+        else
+            return offeredItems.size();
     }
 
 }

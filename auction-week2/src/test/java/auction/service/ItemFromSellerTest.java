@@ -30,8 +30,11 @@ public class ItemFromSellerTest {
         new DatabaseCleaner(em).clean();
     }
 
+    /**
+     *
+     */
     @Test
- //   @Ignore
+    //@Ignore
     public void numberOfOfferdItems() {
 
         String email = "ifu1@nl";
@@ -79,7 +82,6 @@ public class ItemFromSellerTest {
         
         assertNotSame(user3, userWithItem);
         assertEquals(user3, userWithItem);
-
     }
 
     @Test

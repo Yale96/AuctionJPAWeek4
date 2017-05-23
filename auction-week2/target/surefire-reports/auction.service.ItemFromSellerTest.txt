@@ -1,14 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: auction.service.ItemFromSellerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.267 sec <<< FAILURE!
-numberOfOfferdItems(auction.service.ItemFromSellerTest)  Time elapsed: 0.056 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<1> but was:<0>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:645)
-	at org.junit.Assert.assertEquals(Assert.java:631)
-	at auction.service.ItemFromSellerTest.numberOfOfferdItems(ItemFromSellerTest.java:50)
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.331 sec <<< FAILURE!
+numberOfOfferdItems(auction.service.ItemFromSellerTest)  Time elapsed: 0.037 sec  <<< ERROR!
+java.lang.NullPointerException
+	at auction.domain.Item.hashCode(Item.java:136)
+	at java.util.HashMap.hash(HashMap.java:338)
+	at java.util.HashMap.put(HashMap.java:611)
+	at java.util.HashSet.add(HashSet.java:219)
+	at auction.domain.User.addItem(User.java:84)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:23)
+	at auction.service.ItemFromSellerTest.numberOfOfferdItems(ItemFromSellerTest.java:48)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -39,12 +41,15 @@ java.lang.AssertionError: expected:<1> but was:<0>
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-getItemsFromSeller(auction.service.ItemFromSellerTest)  Time elapsed: 0.014 sec  <<< FAILURE!
-java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertTrue(Assert.java:52)
-	at auction.service.ItemFromSellerTest.getItemsFromSeller(ItemFromSellerTest.java:98)
+getItemsFromSeller(auction.service.ItemFromSellerTest)  Time elapsed: 0.012 sec  <<< ERROR!
+java.lang.NullPointerException
+	at auction.domain.Item.hashCode(Item.java:136)
+	at java.util.HashMap.hash(HashMap.java:338)
+	at java.util.HashMap.put(HashMap.java:611)
+	at java.util.HashSet.add(HashSet.java:219)
+	at auction.domain.User.addItem(User.java:84)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:23)
+	at auction.service.ItemFromSellerTest.getItemsFromSeller(ItemFromSellerTest.java:97)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

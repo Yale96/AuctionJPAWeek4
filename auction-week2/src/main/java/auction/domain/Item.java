@@ -33,8 +33,12 @@ public class Item implements Comparable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private User seller;
+    
+    @ManyToOne
+    private User sellers;
+    
    @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "description", column = @Column(name = "category_description"))
@@ -129,6 +133,6 @@ public class Item implements Comparable {
 
     public int hashCode() {
         //TODO
-        return id.intValue();
+        return id.hashCode();
     }
 }
