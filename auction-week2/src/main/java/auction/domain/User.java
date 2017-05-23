@@ -1,5 +1,7 @@
 package auction.domain;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,19 +32,26 @@ public class User {
     @CascadeOnDelete
     private Set<Bid> bids;
     @CascadeOnDelete
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
-    private Set<Item> items;
+//    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
+//    private Set<Item> items;
+    @OneToMany(mappedBy= "seller", cascade = CascadeType.REMOVE)
+    private Set<Item> offeredItems = new HashSet();
 
     public User()
     {
         
     }
     
+    public Iterator<Item> getOfferedItems()
+    {
+        return this.offeredItems.iterator();
+    }
+    
     public User(String email) {
         this.email = email;
 
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -69,6 +78,16 @@ public class User {
 
     public void setItems(Set<Item> items) {
         this.items = items;
+    }
+    
+    private void addItem(Item item)
+    {
+        offeredItems.add(item);
+    }
+    
+    public int numberOfOfferdItems()
+    {
+        return offeredItems.size();
     }
 
 }
