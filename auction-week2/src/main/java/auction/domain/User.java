@@ -31,9 +31,7 @@ public class User {
     @CascadeOnDelete
     private Set<Bid> bids;
     @CascadeOnDelete
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
-    private Set<Item> items;
-    @OneToMany(mappedBy= "sellers", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy= "seller", cascade = CascadeType.REMOVE)
     private Set<Item> offeredItems = new HashSet();
 
     public User()
@@ -44,6 +42,11 @@ public class User {
     public Iterator<Item> getOfferedItems()
     {
         return this.offeredItems.iterator();
+    }
+    
+    public void setOfferedItems(Set<Item> items)
+    {
+        this.offeredItems = items;
     }
     
     public User(String email) {
@@ -69,14 +72,6 @@ public class User {
 
     public void setBids(Set<Bid> bids) {
         this.bids = bids;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
     }
     
     public void addItem(Item item)

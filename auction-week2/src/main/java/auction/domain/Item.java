@@ -33,11 +33,9 @@ public class Item implements Comparable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.PERSIST)
     private User seller;
     
-    @ManyToOne
-    private User sellers;
     
    @Embedded
     @AttributeOverrides({
@@ -133,6 +131,7 @@ public class Item implements Comparable {
 
     public int hashCode() {
         //TODO
-        return id.hashCode();
+        //Haal de parentconstructor op met super, dus waar het object daadwerkelijk wordt aangemaakt. 
+        return super.hashCode();
     }
 }

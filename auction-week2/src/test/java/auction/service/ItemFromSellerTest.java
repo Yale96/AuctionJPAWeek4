@@ -27,7 +27,8 @@ public class ItemFromSellerTest {
         registrationMgr = new RegistrationMgr();
         auctionMgr = new AuctionMgr();
         sellerMgr = new SellerMgr();
-        new DatabaseCleaner(em).clean();
+        DatabaseCleaner dc = new DatabaseCleaner();
+        dc.clean();
     }
 
     /**
@@ -49,7 +50,7 @@ public class ItemFromSellerTest {
 
        
         // test number of items belonging to user1
-        assertEquals(0, user1.numberOfOfferdItems());
+        //assertEquals(0, user1.numberOfOfferdItems());
         assertEquals(1, user1.numberOfOfferdItems());
         
         /*
@@ -72,7 +73,7 @@ public class ItemFromSellerTest {
 
         User userWithItem = item2.getSeller();
         assertEquals(2, userWithItem.numberOfOfferdItems());
-        assertEquals(3, userWithItem.numberOfOfferdItems());
+//      assertEquals(3, userWithItem.numberOfOfferdItems());
         /*
          *  expected: which one of te above two assertions do you expect to be true?
          *  QUESTION:
