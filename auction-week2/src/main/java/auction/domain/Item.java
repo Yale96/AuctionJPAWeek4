@@ -98,10 +98,12 @@ public class Item implements Comparable {
 
     }
 
+    @Override
     public int compareTo(Object arg0) {
        return id.compareTo(((Item)arg0).id);
     }
 
+    @Override
     public boolean equals(Object o) {
          if (o == null) {
             return false;
@@ -129,6 +131,7 @@ public class Item implements Comparable {
 
     }
 
+    @Override
     public int hashCode() {
         //TODO
         //Haal de parentconstructor op met super, dus waar het object daadwerkelijk wordt aangemaakt. 

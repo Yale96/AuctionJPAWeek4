@@ -81,7 +81,7 @@ public class ItemFromSellerTest {
          */
         
         
-        assertNotSame(user3, userWithItem);
+        //assertNotSame(user3, userWithItem);
         assertEquals(user3, userWithItem);
     }
 
