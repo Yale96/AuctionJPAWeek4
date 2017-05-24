@@ -31,7 +31,7 @@ public class Item implements Comparable {
     
     
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne (cascade = CascadeType.PERSIST)
     private User seller;
@@ -44,7 +44,7 @@ public class Item implements Comparable {
 
     private Category category;
     private String description;
-    @OneToOne(cascade=CascadeType.PERSIST)
+    @OneToOne(mappedBy = "item", cascade=CascadeType.REMOVE)
     private Bid highest;
     
     
@@ -58,6 +58,11 @@ public class Item implements Comparable {
     
     public Item(){
         
+    }
+    
+    public void setHighest(Bid highest)
+    {
+        this.highest = highest;
     }
     
     public Long getId() {

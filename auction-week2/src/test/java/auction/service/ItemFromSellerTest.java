@@ -1,5 +1,6 @@
 package auction.service;
 
+import auction.domain.Bid;
 import org.junit.Ignore;
 import javax.persistence.*;
 import util.DatabaseCleaner;
@@ -7,6 +8,7 @@ import auction.domain.Category;
 import auction.domain.Item;
 import auction.domain.User;
 import java.util.Iterator;
+import nl.fontys.util.Money;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -29,6 +31,19 @@ public class ItemFromSellerTest {
         sellerMgr = new SellerMgr();
         DatabaseCleaner dc = new DatabaseCleaner();
         dc.clean();
+    }
+    
+    @Test
+    public void bidirectionalBidToItem(){
+        User seller = new User("seller@live.nl");
+        User buyer = new User("buyer@live.nl");
+        
+        Category catOne = new Category("catOne");
+        Item i = new Item(seller, catOne, "testItem");
+        
+        i.newBid(buyer, new Money(11, "eur"));
+        
+        assertEquals(11, i.getHighestBid());
     }
 
     /**

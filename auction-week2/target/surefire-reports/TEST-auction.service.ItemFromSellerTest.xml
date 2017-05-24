@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="auction.service.ItemFromSellerTest" time="1.272" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="auction.service.ItemFromSellerTest" time="0.432" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\bin"/>
@@ -62,23 +62,33 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="auction.service.ItemFromSellerTest" name="numberOfOfferdItems" time="0.047">
-    <failure message="expected not same" type="java.lang.AssertionError">java.lang.AssertionError: expected not same
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failSame(Assert.java:819)
-	at org.junit.Assert.assertNotSame(Assert.java:798)
-	at org.junit.Assert.assertNotSame(Assert.java:811)
-	at auction.service.ItemFromSellerTest.numberOfOfferdItems(ItemFromSellerTest.java:84)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+  <testcase classname="auction.service.ItemFromSellerTest" name="bidirectionalBidToItem" time="0.016">
+    <error message="
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn." type="Local Exception Stack">Local Exception Stack: 
+Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionSearchingForPersistenceResources(PersistenceUnitLoadingException.java:127)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:107)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at auction.service.ItemFromSellerTest.&lt;init&gt;(ItemFromSellerTest.java:18)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
@@ -99,70 +109,278 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</failure>
-    <system-out>[EL Config]: metadata: 2017-05-24 10:41:36.113--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field seller] is being defaulted to: class auction.domain.User.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field offeredItems] is being defaulted to: class auction.domain.Item.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field bids] is being defaulted to: class auction.domain.Bid.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
-[EL Config]: metadata: 2017-05-24 10:41:36.135--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
-[EL Warning]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [auction.domain.Item] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.151--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field buyer] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [buyer] is being defaulted to: BUYER_ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field seller] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [seller] is being defaulted to: SELLER_ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field highest] is being defaulted to: ID.
-[EL Config]: metadata: 2017-05-24 10:41:36.167--ServerSession(317986356)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [highest] is being defaulted to: HIGHEST_ID.
-[EL Info]: 2017-05-24 10:41:36.614--ServerSession(317986356)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
-[EL Fine]: connection: 2017-05-24 10:41:36.799--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.MySQLPlatform
-[EL Config]: connection: 2017-05-24 10:41:36.799--ServerSession(317986356)--Connection(1624702420)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
-	platform=&gt;MySQLPlatform
-	user name=&gt; &quot;fontys&quot;
-	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/fontys?serverTimezone=UTC&quot;
-))
-[EL Config]: connection: 2017-05-24 10:41:36.815--ServerSession(317986356)--Connection(324008184)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/fontys?serverTimezone=UTC
-	User: fontys@localhost
-	Database: MySQL  Version: 5.7.18-log
-	Driver: MySQL Connector Java  Version: mysql-connector-java-6.0.6 ( Revision: 3dab84f4d9bede3cdd14d57b99e9e98a02a5b97d )
-[EL Info]: connection: 2017-05-24 10:41:36.932--ServerSession(317986356)--Thread(Thread[main,5,main])--file:/E:/School/S4/Software/P2/SE42/Week 4/AuctionJPAWeek4/auction-week2/target/classes/_nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU login successful
-[EL Fine]: sql: 2017-05-24 10:41:36.937--ServerSession(317986356)--Connection(324008184)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = SEQ_GEN_TABLE
-[EL Fine]: sql: 2017-05-24 10:41:36.984--ClientSession(1940844413)--Connection(324008184)--Thread(Thread[main,5,main])--DELETE FROM USER
-[EL Fine]: sql: 2017-05-24 10:41:37.0--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--UPDATE SEQUENCE SET SEQ_COUNT = SEQ_COUNT + ? WHERE SEQ_NAME = ?
-	bind =&gt; [50, SEQ_GEN_TABLE]
-[EL Fine]: sql: 2017-05-24 10:41:37.0--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--SELECT SEQ_COUNT FROM SEQUENCE WHERE SEQ_NAME = ?
-	bind =&gt; [SEQ_GEN_TABLE]
-[EL Fine]: sql: 2017-05-24 10:41:37.0--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [ifu1@nl]
-[EL Fine]: sql: 2017-05-24 10:41:37.0--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--SELECT LAST_INSERT_ID()
-[EL Fine]: sql: 2017-05-24 10:41:37.015--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--INSERT INTO ITEM (ID, DESCRIPTION, category_description, SELLER_ID, HIGHEST_ID) VALUES (?, ?, ?, ?, ?)
-	bind =&gt; [1501, omsch_ifu1, cat2, 378, null]
-[EL Fine]: sql: 2017-05-24 10:41:37.015--ClientSession(2038585029)--Connection(324008184)--Thread(Thread[main,5,main])--INSERT INTO ITEM (ID, DESCRIPTION, category_description, SELLER_ID, HIGHEST_ID) VALUES (?, ?, ?, ?, ?)
-	bind =&gt; [1502, omsch_ifu2, cat2, 378, null]
+Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createPredeployFailedPersistenceException(EntityManagerSetupImpl.java:1954)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1945)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.callPredeploy(JPAInitializer.java:98)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:96)
+	... 32 more
+Caused by: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.predeployFailed(EntityManagerSetupException.java:230)
+	... 36 more
+Caused by: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.ValidationException.incompleteJoinColumnsSpecified(ValidationException.java:1847)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumnsAndValidate(MappingAccessor.java:757)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumns(MappingAccessor.java:657)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processForeignKeyRelationship(ObjectAccessor.java:663)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processOwningMappingKeys(ObjectAccessor.java:733)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.OneToOneAccessor.process(OneToOneAccessor.java:161)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processOwningRelationshipAccessors(MetadataProject.java:1580)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processStage3(MetadataProject.java:1833)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProcessor.processORMMetadata(MetadataProcessor.java:580)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:585)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1869)
+	... 34 more
+</error>
+    <system-out>[EL Config]: metadata: 2017-05-24 11:14:36.427--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.448--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field item] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.452--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.452--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.452--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field seller] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.452--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.454--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field offeredItems] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field bids] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.456--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Warning]: metadata: 2017-05-24 11:14:36.472--ServerSession(317986356)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [auction.domain.Item] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
+[EL Config]: metadata: 2017-05-24 11:14:36.472--ServerSession(317986356)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
+[EL Config]: metadata: 2017-05-24 11:14:36.472--ServerSession(317986356)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
+[EL Config]: metadata: 2017-05-24 11:14:36.472--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.472--ServerSession(317986356)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
 </system-out>
-    <system-err>Loading class `com.mysql.jdbc.Driver&apos;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&apos;. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-Wed May 24 10:41:36 CEST 2017 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-Wed May 24 10:41:36 CEST 2017 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-</system-err>
   </testcase>
-  <testcase classname="auction.service.ItemFromSellerTest" name="getItemsFromSeller" time="0.021"/>
+  <testcase classname="auction.service.ItemFromSellerTest" name="numberOfOfferdItems" time="0">
+    <error message="
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn." type="Local Exception Stack">Local Exception Stack: 
+Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionSearchingForPersistenceResources(PersistenceUnitLoadingException.java:127)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:107)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at auction.service.ItemFromSellerTest.&lt;init&gt;(ItemFromSellerTest.java:18)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createPredeployFailedPersistenceException(EntityManagerSetupImpl.java:1954)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1945)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.callPredeploy(JPAInitializer.java:98)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:96)
+	... 32 more
+Caused by: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.predeployFailed(EntityManagerSetupException.java:230)
+	... 36 more
+Caused by: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.ValidationException.incompleteJoinColumnsSpecified(ValidationException.java:1847)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumnsAndValidate(MappingAccessor.java:757)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumns(MappingAccessor.java:657)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processForeignKeyRelationship(ObjectAccessor.java:663)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processOwningMappingKeys(ObjectAccessor.java:733)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.OneToOneAccessor.process(OneToOneAccessor.java:161)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processOwningRelationshipAccessors(MetadataProject.java:1580)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processStage3(MetadataProject.java:1833)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProcessor.processORMMetadata(MetadataProcessor.java:580)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:585)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1869)
+	... 34 more
+</error>
+    <system-out>[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field item] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field seller] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field offeredItems] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field bids] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.488--ServerSession(306206744)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Warning]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [auction.domain.Item] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(306206744)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
+</system-out>
+  </testcase>
+  <testcase classname="auction.service.ItemFromSellerTest" name="getItemsFromSeller" time="0">
+    <error message="
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn." type="Local Exception Stack">Local Exception Stack: 
+Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
+Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionSearchingForPersistenceResources(PersistenceUnitLoadingException.java:127)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:107)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at auction.service.ItemFromSellerTest.&lt;init&gt;(ItemFromSellerTest.java:18)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createPredeployFailedPersistenceException(EntityManagerSetupImpl.java:1954)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1945)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.callPredeploy(JPAInitializer.java:98)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:96)
+	... 32 more
+Caused by: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.EntityManagerSetupException
+Exception Description: Predeployment of PersistenceUnit [nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU] failed.
+Internal Exception: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.EntityManagerSetupException.predeployFailed(EntityManagerSetupException.java:230)
+	... 36 more
+Caused by: Exception [EclipseLink-7220] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.ValidationException
+Exception Description: The @JoinColumns on the annotated element [field item] from the entity class [class auction.domain.Bid] is incomplete. When the source entity class uses a composite primary key, a @JoinColumn must be specified for each join column using the @JoinColumns. Both the name and the referencedColumnName elements must be specified in each such @JoinColumn.
+	at org.eclipse.persistence.exceptions.ValidationException.incompleteJoinColumnsSpecified(ValidationException.java:1847)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumnsAndValidate(MappingAccessor.java:757)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.getJoinColumns(MappingAccessor.java:657)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processForeignKeyRelationship(ObjectAccessor.java:663)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.ObjectAccessor.processOwningMappingKeys(ObjectAccessor.java:733)
+	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.OneToOneAccessor.process(OneToOneAccessor.java:161)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processOwningRelationshipAccessors(MetadataProject.java:1580)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processStage3(MetadataProject.java:1833)
+	at org.eclipse.persistence.internal.jpa.metadata.MetadataProcessor.processORMMetadata(MetadataProcessor.java:580)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:585)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1869)
+	... 34 more
+</error>
+    <system-out>[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field item] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field seller] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field offeredItems] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field bids] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
+[EL Config]: metadata: 2017-05-24 11:14:36.503--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Warning]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [auction.domain.Item] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2017-05-24 11:14:36.519--ServerSession(683962652)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
+</system-out>
+  </testcase>
 </testsuite>
